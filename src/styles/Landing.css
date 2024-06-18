@@ -1,28 +1,33 @@
 /* Landing.css */
 .landing-page {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    overflow: hidden;
-    width: 100%;
-    min-height: 95vh;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Montserrat', sans-serif;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Montserrat', sans-serif;
+	gap: 10vh;
 }
 
-.landing-page p{
-    margin-top: 10px !important;
+.landing-page .form-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	width: 90%;
+}
+
+.landing-page p {
+	margin-top: 10px !important;
 }
 
 .landing-page button,
 .landing-page .InputTextBox {
-    width: 220px;;
-    margin: 10px 0;
+	width: 220px;
+	margin: 10px 0;
 }
 
-
-.landing-page button:hover{
-    opacity: 0.8;
+.landing-page button:hover {
+	opacity: 0.8;
 }
-
