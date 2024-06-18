@@ -14,7 +14,8 @@ const Environments = {
 }
 
 const nextConfig = {
-    env: { ...Environments['development']}
+    env: { ...Environments['development']},
+    swcMinify: false
 };
 
 export default nextConfig;

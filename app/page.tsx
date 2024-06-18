@@ -1,24 +1,35 @@
-import Link from 'next/link'
-import "@/styles/Landing.css"
-
-import FirstComponent from '@/src/components/Landing/FirstComponent'
-import SecondComponent from '@/src/components/Landing/SecondComponent'
-import ThirdComponent from '@/src/components/Landing/ThirdComponent'
-import Products from '@/src/components/Landing/Products'
-import LastComponent from '@/src/components/LastComponent'
-
-import FAQ from '@/src/components/Landing/FAQ'
+"use client";
+import "@/styles/Landing.css";
+import "@/app/globals.css";
+import { useActionState } from "react";
+import Image from "next/image";
+import Logo from '@/public/Logo.png';
+import { submitForm } from '@/app/actions';
+import { useFormState } from "react-dom";
 
 export default function Home() {
-	return (
-		<div className='landing-page'>
-			<FirstComponent	/>
-			<SecondComponent/>
-			<ThirdComponent	/>
-			<Products/>
-			<FAQ/>
-			<LastComponent/>
-			
-		</div>
-	)
+    const [state, formAction] = useFormState(submitForm, { email: "", message: "", isSubmitting: false });
+
+    return (
+        <div className='landing-page'>
+            <Image src={Logo} alt="Logo" width={120} height={120} />
+            <h3>Under Construction👷🏽</h3>
+
+            {state.message ? <p>{state.message}</p> : <p>If you'd like to be notified when we're ready, please leave us your email!</p>}
+
+            {!state.message && (
+                <form action={formAction}>
+                    <div className="InputTextBox flex flex-col">
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            name="email"
+                            required
+                        />
+                    </div>
+                    <button type="submit" disabled={state.isSubmitting}>Notify Me</button>
+                </form>
+            )}
+        </div>
+    );
 }
