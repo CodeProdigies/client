@@ -1,7 +1,6 @@
 'use client'
 import '@/styles/Landing.css'
 import '@/app/globals.css'
-import { useActionState } from 'react'
 import Image from 'next/image'
 import Logo from '@/public/Logo.png'
 import { submitForm } from '@/app/actions'

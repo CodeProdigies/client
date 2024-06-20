@@ -44,20 +44,12 @@ const Page = () => {
 		router.push('/customer-login')
 	}
 
-	if (isLoading)
-		return (
-			<div className='Signup'>
-				<div className='container'>
-					<h1 className='page-title'>MEDSOURCE</h1>
-					<IsBusyLoading />
-				</div>
-			</div>
-		)
-	else
-		return (
-			<div className='Signup'>
-				<div className='container'>
-					<h1 className='page-title'>MEDSOURCE</h1>
+	return (
+		<div className='Signup'>
+			<div className='container'>
+				<h1 className='page-title'>MEDSOURCE</h1>
+				<IsBusyLoading isBusy={isLoading} />
+				{!isLoading && (
 					<div className='form-container'>
 						<h3>Sign up</h3>
 						<Formik
@@ -94,9 +86,10 @@ const Page = () => {
 							)}
 						</Formik>
 					</div>
-				</div>
+				)}
 			</div>
-		)
+		</div>
+	)
 }
 
 export default Page

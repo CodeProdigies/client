@@ -112,7 +112,6 @@ h6 {
 	margin: 0px;
 	font-weight: 600;
 	color: var(--text-color);
-	line-height: 1.1;
 }
 
 a {
@@ -197,7 +196,7 @@ button.error:not(:disabled):hover {
 }
 
 p {
-	font-size: var(--fz-md);
+	font-size: 1em;
 	line-height: 1.4;
 }
 
