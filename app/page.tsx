@@ -4,10 +4,20 @@ import '@/app/globals.css'
 import Image from 'next/image'
 import Logo from '@/public/Logo.png'
 import { submitForm } from '@/app/actions'
-import { useFormState } from 'react-dom'
+import { useFormState, useFormStatus } from 'react-dom'
 
 export default function Home() {
-	const [state, formAction] = useFormState(submitForm, { email: '', message: '', isSubmitting: false })
+	const [state, formAction] = useFormState(submitForm, { email: '', message: '' })
+	
+	const SubmitButton = () => {
+		const { pending } = useFormStatus()
+
+		return (
+			<button type='submit' disabled={pending}>
+				{pending ? 'Submitting ...' : 'Notify Me'}
+			</button>
+		)
+	}
 
 	return (
 		<div className='landing-page'>
@@ -24,9 +34,8 @@ export default function Home() {
 						<div className='InputTextBox flex flex-col'>
 							<input type='email' placeholder='Email' name='email' required />
 						</div>
-						<button type='submit' disabled={state.isSubmitting}>
-							Notify Me
-						</button>
+
+						<SubmitButton/>
 					</form>
 				)}
 			</div>
