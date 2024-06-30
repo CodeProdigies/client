@@ -25,7 +25,7 @@ export default function Home() {
 							<input type='email' placeholder='Email' name='email' required />
 						</div>
 						<button type='submit' disabled={state.isSubmitting}>
-							Notify Me
+							Submit
 						</button>
 					</form>
 				)}
